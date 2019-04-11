@@ -484,8 +484,9 @@ class Dialog extends Component {
   };
 
   render() {
-    return (
-      <RenderToLayer render={this.renderLayer} open={true} useLayerForClickAway={false} />
+    return ReactDOM.createPortal(
+      <DialogInline {...this.props} />,
+      window.document.body,
     );
   }
 }
